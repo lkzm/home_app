@@ -14,7 +14,6 @@ class Collection (models.Model):
     description = models.CharField (max_length = gvars.text, default = 'none')
 
 
-def path_fix(album, artist)
 class Track (models.Model):
     title = models.CharField(max_length = gvars.names)
     album = models.CharField(max_length = gvars.names)
