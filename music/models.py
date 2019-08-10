@@ -22,5 +22,5 @@ class Track (models.Model):
     file = models.FileField()
     track_number = models.IntegerField(default=0)
 
-    
+
 
