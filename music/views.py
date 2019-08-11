@@ -66,7 +66,7 @@ def upload_track (request, context =  {} ):
 
             return render(request,'music/upload_track.html', context)
     else:
-         return render(request,'music/upload_track.html', context
+         return render(request,'music/upload_track.html', context)
     return render(request, 'music/upload_track.html', context)
 
 
