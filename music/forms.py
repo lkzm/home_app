@@ -3,7 +3,7 @@ from django import forms
 from music import gvars
 
 class UploadFileForm (forms.Form):
-    file = forms.FileField(allow_empty_file=False)
+    file = forms.FileField()
 
 
 class MetaDataForm (forms.Form):
