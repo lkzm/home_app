@@ -64,13 +64,14 @@ def upload_track (request, context =  {} ):
             t.save()
             return edit_meta(request, t.pk)
         else:
-
+            f = forms.UploadFileForm()
+            context['fu'] = f 
             return render(request,'music/upload_track.html', context)
     else:
         f = forms.UploadFileForm()
-
+        context['fu'] = f
         return render(request,'music/upload_track.html', context)
-    context['fu'] = f
+
     return render(request, 'music/upload_track.html', context)
 
 
