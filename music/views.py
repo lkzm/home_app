@@ -32,6 +32,7 @@ def edit_meta (request, track_id, context = {} ):
         f = forms.MetaDataForm(request.POST)
         context['f'] = f  
         if f.is_valid():
+            t.title = f.cleaned_data['title']
             t.album = f.cleaned_data['album']
             t.artist = f.cleaned_data['artist']
             t.track_number = f.cleaned_data['track_number']
@@ -41,7 +42,12 @@ def edit_meta (request, track_id, context = {} ):
             context['invalid_f'] = True
             return edit_meta(request, track_id, context)
     else:
-        f = forms.MetaDataForm(instance=t)
+        data = {}
+        data['title'] = t.title
+        data['album'] = t.album
+        data['artist'] = t.artist
+        data['track_number'] = t.track_number
+        f = forms.MetaDataForm(initial=data)
         context['f'] = f
         return render(request, 'music/track_edit.html', context)
     return render(request, 'music/track_edit.html', context)
