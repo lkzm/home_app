@@ -57,11 +57,10 @@ def upload_track (request, context =  {} ):
 
 
     if request.method == 'POST':
-        f = forms.UploadFileForm(request.POST)
+        f = forms.UploadFileForm(request.POST, request.FILES)
         context['fu'] = f
         if f.is_valid():
-            file = f.cleaned_data['file']
-            t = models.Track.objects.create(track_number=0, title="title", album="album", artist="artist", file=file)
+            t = models.Track.objects.create(track_number=0, title="title", album="album", artist="artist", file=request.FILES['file'])
             t.save()
             return edit_meta(request, t.pk)
         else:
@@ -69,7 +68,7 @@ def upload_track (request, context =  {} ):
             return render(request,'music/upload_track.html', context)
     else:
         f = forms.UploadFileForm()
-        context['fu'] = f 
+        context['fu'] = f
         return render(request,'music/upload_track.html', context)
     return render(request, 'music/upload_track.html', context)
 
