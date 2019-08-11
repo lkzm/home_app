@@ -55,16 +55,13 @@ def edit_meta (request, track_id, context = {} ):
 
 def upload_track (request, context =  {} ):
     f = forms.UploadFileForm(request.POST)
-    context['f'] = f
+    context['fu'] = f
     if f.is_valid():
-
-        
         file = f.cleaned_data['file']
         t = models.Track.objects.create(track_number=0, title="title", album="album", artist="artist", file=file)
         t.save()
         return edit_meta(request, t.pk)
     else:
-        context['invalid_f'] = True
         return render(request,'music/upload_track.html', context)
     return render(request, 'music/upload_track.html', context)
 
