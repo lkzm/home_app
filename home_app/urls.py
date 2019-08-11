@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from music import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('select_user/', views.select_user, name = 'Select User'),
+    path('us%<user_id>/', views.us, name = 'us'),
+    path('library/', views.library, name = 'Library'),
+    path('track_info%<track_id>/', views.track_info, name = 'edit_track'),
+    path('track_edit%<track_id>/', views.edit_meta, name = 'edit_meta'),
+
 ]

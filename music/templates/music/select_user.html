@@ -1,0 +1,10 @@
+{% if u %}
+
+{% for x in u %}
+
+<a href="/us%{{ x.id }}/">{{ x.name }}</a>
+
+
+{% endfor %}
+
+{% endif %}

@@ -1,0 +1,16 @@
+{% if c %}
+
+{% for x in c %}
+
+    {% if x %}
+
+    {% for y in x.tracks.all %}
+
+        <a href="/track%{{ y.id }}/"> {{ y.artist }} - {{ y.name }}</a>
+
+    {% endfor %}
+    {% endif %}
+
+{% endfor %}
+
+{% endif %}
