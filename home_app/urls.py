@@ -24,5 +24,6 @@ urlpatterns = [
     path('library/', views.library, name = 'Library'),
     path('track_info%<track_id>/', views.track_info, name = 'edit_track'),
     path('track_edit%<track_id>/', views.edit_meta, name = 'edit_meta'),
+    path('track_upload/', views.upload_track, name = 'upload_track'),
 
 ]
