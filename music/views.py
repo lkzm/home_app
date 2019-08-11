@@ -39,8 +39,8 @@ def edit_meta (request, track_id, context = {} ):
             t.save()
             return track_info(request, track_id)
         else:
-            context['invalid_f'] = True
-            return edit_meta(request, track_id, context)
+
+            return render(request, 'music/track_edit.html', context) 
     else:
         data = {}
         data['title'] = t.title
